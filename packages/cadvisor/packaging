@@ -1,0 +1,6 @@
+set -e -x
+
+sudo chmod +x cadvisor/cadvisor
+cp -a cadvisor/cadvisor ${BOSH_INSTALL_TARGET}
+
+

@@ -1,0 +1,5 @@
+set -e -x
+
+sudo chmod +x metrics_agent/monitoring_agent
+mkdir -p ${BOSH_INSTALL_TARGET}/bin
+cp -a metrics_agent/monitoring_agent ${BOSH_INSTALL_TARGET}/bin

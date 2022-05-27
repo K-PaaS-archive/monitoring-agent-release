@@ -1,0 +1,38 @@
+---
+name: cadvisor
+templates:
+  cadvisor_ctl.erb: bin/cadvisor_ctl
+  rep_ca.crt.erb: config/certs/rep/ca.crt
+  rep_client.crt.erb: config/certs/rep/client.crt
+  rep_client.key.erb: config/certs/rep/client.key
+
+packages:
+  - pidutils
+  - cadvisor
+
+properties:
+  cadvisor.storage_driver:
+    description: "Storage Driver - ex: influxdb, elasticsearch, kafka, redis etc"
+    default: "influxdb"
+  cadvisor.storage_driver_db:
+    description: "Storage Database Name"
+    default: "cf_metric_db"
+  cadvisor.storage_driver_ip:
+    description: "Storage Server Connection IP"
+    default: "127.0.0.1"
+  cadvisor.ip_range:
+    description: "B Class Ip Range(InternalIP)"
+    default: "10.20"
+  cadvisor.storage_driver_port:
+    description: "Storage Server connection port"
+    default: 8089
+  cadvisor.rep.require_tls:
+    description: "Whether to require TLS for communication to the securable rep API server.  Deprecated, Diego V2 and later require Rep communication to use TLS. This is only relevant when upgrading from V1 to ensure no downtime during the upgrade"
+    default: false
+  cadvisor.rep.ca_cert:
+    description: "CA cert for communication to the rep."
+  cadvisor.rep.client_cert:
+    description: "Client cert for communication to the rep."
+  cadvisor.rep.client_key:
+    description: "Client key for communication to the rep."
+

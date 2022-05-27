@@ -1,0 +1,31 @@
+input {
+	file {
+		path => "<%= p("logstash_ingestor.input.file_path") %>"
+    codec => plain {
+      charset => "US-ASCII"
+    }
+#		codec => multiline {
+#        charset => "US-ASCII"
+#				pattern => "I,|D,|E,"
+#				negate => true
+#				max_lines => 100000
+#				what => previous
+#		}
+	}
+}
+
+filter {
+}
+
+output {
+	stdout { codec => rubydebug }
+	tcp {
+		host => "<%= p("logstash_ingestor.host") %>"
+		<% if_p("logstash_ingestor.bosh.port") do | port | %>
+		port => "<%= port %>"
+    <% end %>
+    <% if_p("logstash_ingestor.paas.port") do | port | %>
+		port => "<%= port %>"
+    <% end %>
+	}
+}
