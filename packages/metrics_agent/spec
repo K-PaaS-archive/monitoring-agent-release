@@ -1,8 +1,4 @@
 ---
 name: metrics_agent
-
-dependencies:
-- golang
-
 files:
   - metrics_agent/**/*
