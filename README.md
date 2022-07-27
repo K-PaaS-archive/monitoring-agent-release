@@ -6,7 +6,7 @@
  
  $ cd monitoring-agent-release
  
- $ wget -O src.zip https://nextcloud.paas-ta.org/index.php/s/9p2CHajbYkE756A/download
+ $ wget -O src.zip https://nextcloud.paas-ta.org/index.php/s/NHiQZ9Z6GKpE4PW/download
  
  $ unzip src.zip
  
